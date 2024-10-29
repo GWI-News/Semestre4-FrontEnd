@@ -1,4 +1,4 @@
-.card{
+.card {
     max-width: 25rem;
     display: flex;
     justify-content: space-around;
@@ -6,9 +6,15 @@
     flex-direction: column;
     padding: 0.5rem 1rem;
     margin: 1rem;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover{
-    transform: scale(1.05);
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
 }
