@@ -1,10 +1,9 @@
-// src/pages/NewsPage/NewsPage.js
 import React, { useState, useEffect } from 'react';
 import styles from './NewsPage.module.css';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../firebase/config';
-import NewsCard from '../../components/Card/NewsCard';
+import Card from '../../components/Card/Card'; 
 import PesquisaTempoReal from '../../components/Pesquisa/Pesquisa';
 
 import Container from 'react-bootstrap/Container';
@@ -37,23 +36,14 @@ const NewsPage = ({ categoria }) => {
       <Carousel indicators={false}>
         {noticiasCarrossel.map((carouselItem, i) => (
           <Carousel.Item key={i}>
-            <NavLink to={`/${categoria}/${carouselItem.id}`}>
-              <img
-                className="d-block w-100"
-                src={carouselItem.img}
-                alt={carouselItem.alt_imagem}
-              />
-              <Carousel.Caption className={`${styles.carouselTexto} p-1`}>
-                <h3 className="m-0">{carouselItem.titulo}</h3>
-              </Carousel.Caption>
-            </NavLink>
+            <Card noticia={carouselItem} categoria={categoria} /> {/* Usando o Card aqui */}
           </Carousel.Item>
         ))}
       </Carousel>
 
       <div className={styles.cardContainer}>
         {noticiasCards.map((noticia) => (
-          <NewsCard key={noticia.id} noticia={noticia} categoria={categoria} />
+          <Card key={noticia.id} noticia={noticia} categoria={categoria} />
         ))}
       </div>
     </Container>
