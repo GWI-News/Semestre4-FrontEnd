@@ -1,51 +1,49 @@
-import React from 'react'
-import { useState } from 'react'
-import styles from './Header.module.css'
-import { NavLink, useLocation } from 'react-router-dom'
-
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
+import styles from './Header.module.css';
 
 const Header = ({ logos }) => {
-    const location = useLocation()
+    const location = useLocation();
 
-    var separatorColorClassHeader = styles.headerPadrao
+    var separatorColorClassHeader = styles.headerPadrao;
     switch (location.pathname) {
         case '/Educacao':
-            separatorColorClassHeader = styles.headerEducacao
-            break
+            separatorColorClassHeader = styles.headerEducacao;
+            break;
         case '/Esportes':
-            separatorColorClassHeader = styles.headerEsportes
-            break
+            separatorColorClassHeader = styles.headerEsportes;
+            break;
         case '/Entretenimento':
-            separatorColorClassHeader = styles.headerEntretenimento
-            break
+            separatorColorClassHeader = styles.headerEntretenimento;
+            break;
         case '/Economia':
-            separatorColorClassHeader = styles.headerEconomia
-            break
+            separatorColorClassHeader = styles.headerEconomia;
+            break;
         default:
-            separatorColorClassHeader = styles.headerPadrao
-            break
+            separatorColorClassHeader = styles.headerPadrao;
+            break;
     }
 
     return (
-        <>
-            {logos.map((logo, i) => {
-                return (
-                    <Container key={i} fluid className={`${styles.headerMobile} ${separatorColorClassHeader} fixed-top d-flex justify-content-center align-items-center p-0`}>
-                        <Row className='justify-content-center'>
-                            <Col xs={9} className='align-items-center p-0'>
-                                <NavLink to={'/'}>
-                                    <img src={logo.img} alt={logo.alt} className={`w-100 p-0`} />
-                                </NavLink>
-                            </Col>
-                        </Row>
-                    </Container>
-                )
-            })}
-        </>
-    )
-}
+        <Container fluid className={`${styles.headerMobile} ${separatorColorClassHeader} fixed-top d-flex justify-content-between align-items-center p-0`}>
+            <NavLink to={'/'}>
+                {logos.map((logo, i) => (
+                    <img key={i} src={logo.img} alt={logo.alt} className={`w-100 p-0`} />
+                ))}
+            </NavLink>
+            <div className={styles.nav}>
+                <ul className={styles.navList}>
+                    <li><NavLink to="/categorias">Categorias</NavLink></li>
+                    <li><NavLink to="/perfil">Perfil</NavLink></li>
+                    <li><NavLink to="/favoritos">Favoritos</NavLink></li>
+                </ul>
+            </div>
+            <div className={styles.search}>
+                <input type="text" placeholder="Buscar..." />
+            </div>
+        </Container>
+    );
+};
 
-export default Header
+export default Header;

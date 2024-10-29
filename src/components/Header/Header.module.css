@@ -1,25 +1,48 @@
+/* Header.module.css */
+
 .headerMobile {
     height: 12vh;
     background-color: #EBEBEB;
     border-bottom: 0.75rem solid #1D4988;
+    display: flex;
+    justify-content: space-between; /* Alinha logo, nav e pesquisa */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 0 2rem; /* Espaçamento lateral */
 }
 
-.headerPadrao {
-    border-bottom: 0.75rem solid #1D4988;
+.nav {
+    flex-grow: 1; /* Permite que a barra de navegação use o espaço restante */
 }
 
-.headerEducacao {
-    border-bottom: 0.75rem solid #7478AD;
+.navList {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Espaçamento entre links */
+    margin: 0;
+    padding: 0;
 }
 
-.headerEsportes {
-    border-bottom: 0.75rem solid #51BF2C;
+.navList li {
+    display: inline; /* Alinha links na mesma linha */
 }
 
-.headerEntretenimento {
-    border-bottom: 0.75rem solid #F3A807;
+.navList a {
+    text-decoration: none;
+    color: #1D4988; /* Cor dos links */
 }
 
-.headerEconomia {
-    border-bottom: 0.75rem solid #D93D4A;
+.navList a:hover {
+    text-decoration: underline; /* Efeito ao passar o mouse */
+}
+
+.search {
+    flex-grow: 1; /* Permite que a barra de pesquisa use o espaço restante */
+    text-align: center; /* Centraliza a barra de pesquisa */
+}
+
+.search input {
+    padding: 0.5rem;
+    width: 50%; /* Ajuste a largura da barra de pesquisa */
+    border: 1px solid #ccc; /* Borda da barra de pesquisa */
+    border-radius: 5px; /* Bordas arredondadas */
 }
