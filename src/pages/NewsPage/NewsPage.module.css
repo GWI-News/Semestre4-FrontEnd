@@ -1,0 +1,65 @@
+.newsPage {
+    min-height: 76vh;
+    margin: 12vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ebebeb;
+    gap: 2rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .tituloPages {
+    font-size: 2.5rem;
+    color: #1D4988;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .carousel {
+    width: 100%;
+    max-width: 60rem;
+    margin-bottom: 2rem;
+  }
+  
+  .carousel-item {
+    height: 28.75rem;
+    position: relative;
+  }
+  
+  .carouselTexto {
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    left: 0;
+  }
+  
+  .cardContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 80rem;
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-item {
+      height: 20rem;
+    }
+  
+    .tituloPages {
+      font-size: 2rem;
+    }
+  
+    .cardContainer {
+      gap: 1rem;
+    }
+  }
+  
