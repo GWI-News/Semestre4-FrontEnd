@@ -1,0 +1,192 @@
+.navbarMobile {
+    height: 12vh;
+    background-color: #EBEBEB;
+    z-index: 1046;
+}
+
+.navbarPadrao {
+    border-top: 0.75rem solid #1D4988;
+}
+
+.navbarEducacao {
+    border-top: 0.75rem solid #7478AD;
+}
+
+.navbarEsportes {
+    border-top: 0.75rem solid #51BF2C;
+}
+
+.navbarEntretenimento {
+    border-top: 0.75rem solid #F3A807;
+}
+
+.navbarEconomia {
+    border-top: 0.75rem solid #D93D4A;
+}
+
+.iconsNavbarMobile {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: #1D4988!important;
+}
+
+.pNavbarMobile {
+    line-height: 1rem;
+    color: #1D4988;
+    font-weight: 600;
+}
+
+.navbarIconSelectedCol {
+    border-radius: 5px;
+    background-color: #1D4988;
+}
+
+.navbarIconSelectedIcon {
+    width: 2rem;
+    height: 2rem;
+    fill: #F9F9F9!important;
+}
+
+.navbarIconSelectedP {
+    line-height: 1rem;
+    font-size: 1rem;
+    color: #F9F9F9;
+    font-weight: 600;
+}
+
+.offcanvasMobile {
+    width: 90%;
+    height: auto!important;
+    bottom: 12vh;
+    left: 5%!important;
+    background-color: #F9F9F9;
+}
+
+.offcanvasTitle {
+    width: 100%;
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #1D4988;
+    border-bottom: 0.2rem solid #EBEBEB;
+}
+
+.formLabelMobile {
+    font-size: 1.5rem;
+    color: #1D4988;
+    font-weight: 600;
+    margin: 0;
+}
+
+.formInputMobile {
+    background-color: #EBEBEB;
+    padding: 0.5rem;
+}
+
+.formInputMobile::placeholder {
+    color: rgb(20, 20, 20, 0.5);
+}
+
+.formInputMobile:focus {
+    box-shadow: 0 0 10px #1D4988;
+}
+
+.formButtonMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    color: #F9F9F9;
+    background-color: #1D4988;
+    padding: 0.3rem 0.5rem 0.45rem;
+}
+
+.formButtonMobile:focus {
+    background-color: #1D4988;
+    box-shadow: 0 0 10px #1D4988;
+}
+
+.formSmallMobile {
+    color: #1D4988;
+    font-weight: 500;
+    align-self: flex-end;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.formTextMobile {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #141414;
+    margin-bottom: 0.25rem;
+}
+
+.backdropExtraClass {
+    top: 12vh;
+    height: 76vh;
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    opacity: 1!important;
+}
+
+.linkConatiner:not(:first-child) {
+    border-top: 0.2rem solid #EBEBEB;
+}
+
+.linkCategorias {
+    width: fit-content;
+    text-decoration: none;
+    margin: 0.5rem auto;
+}
+
+.linkCategoriaEmpregos {
+    color: #1D4988;
+}
+
+.linkCategoriaEducacao {
+    color: #7478AD;
+}
+
+.linkCategoriaEsportes {
+    color: #51BF2C;
+}
+
+.linkCategoriaEntretenimento {
+    color: #F3A807;
+}
+
+.linkCategoriaEconomia {
+    color: #D93D4A;
+}
+
+.linkCategoriaAtivo {
+    color: #F9F9F9;
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+}
+
+.linkCategoriaAtivoEmpregos {
+    background-color: #1D4988;
+}
+
+.linkCategoriaAtivoEducacao {
+    background-color: #7478AD;
+}
+
+.linkCategoriaAtivoEsportes {
+    background-color: #51BF2C;
+}
+
+.linkCategoriaAtivoEntretenimento {
+    background-color: #F3A807;
+}
+
+.linkCategoriaAtivoEconomia {
+    background-color: #D93D4A;
+}
+
+.linkCategorias h1 {
+    font-size: 1.75rem;
+    margin: 0;
+}
