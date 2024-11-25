@@ -11,6 +11,8 @@
     right: 0.688rem;
     z-index: 100;
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .linha {
@@ -20,14 +22,18 @@
 .formInputMobile {
     background-color: #F9F9F9;
     padding: 0.5rem;
+    width: 20rem; /* Ajuste conforme necessário */
+    border: 1px solid #1D4988;
+    border-radius: 0.313rem;
 }
 
 .formInputMobile::placeholder {
-    color: rgb(20, 20, 20, 0.5);
+    color: rgba(20, 20, 20, 0.5);
 }
 
 .formInputMobile:focus {
     box-shadow: 0 0 10px #1D4988;
+    outline: none;
 }
 
 .botaoContainer {
@@ -45,7 +51,6 @@
     padding: 0.625rem;
     border: 1px solid black;
     border-radius: 1.875rem;
-    padding: 0.625rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,4 +60,45 @@
     width: 3.125rem;
     height: 3.125rem;
     font-size: 3.125rem;
+}
+
+/* Estilo da lista suspensa do histórico */
+.historicoLista {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    width: 100%;
+    background-color: #F9F9F9;
+    border: 1px solid #1D4988;
+    border-radius: 0.313rem;
+    max-height: 10rem;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.historicoItem {
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.historicoItem:hover {
+    background-color: #E1E9F2;
+}
+
+.limparHistorico {
+    background-color: #FF4D4D;
+    color: white;
+    border: none;
+    border-radius: 0.313rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin: 0.5rem auto;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.limparHistorico:hover {
+    background-color: #E04343;
 }

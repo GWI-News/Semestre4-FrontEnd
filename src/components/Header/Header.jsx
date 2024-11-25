@@ -39,9 +39,6 @@ const Header = ({ logos }) => {
                     <li><NavLink to="/favoritos">Favoritos</NavLink></li>
                 </ul>
             </div>
-            <div className={styles.search}>
-                <input type="text" placeholder="Buscar..." />
-            </div>
         </Container>
     );
 };
