@@ -30,10 +30,21 @@
   width: 100%;
   height: auto;  /* Garante que a imagem não fique esticada */
   border-radius: 8px; /* Borda arredondada nas imagens */
+  object-fit: cover; /* Garante que a imagem se ajuste bem ao espaço */
+  transition: opacity 0.3s ease;
+}
+
+/* Card Image Lazy Loading */
+.card img.lazy {
+  opacity: 0;
+}
+
+.card img.lazy-loaded {
+  opacity: 1;
 }
 
 /* Título do Card */
-.card-title {
+.cardTitle {
   padding: 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
