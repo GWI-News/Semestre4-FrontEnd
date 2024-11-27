@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import styles from './Header.module.css';
 
 const Header = ({ logos }) => {
     const location = useLocation();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     var separatorColorClassHeader = styles.headerPadrao;
     switch (location.pathname) {
@@ -25,20 +26,44 @@ const Header = ({ logos }) => {
             break;
     }
 
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     return (
-        <Container fluid className={`${styles.headerMobile} ${separatorColorClassHeader} fixed-top d-flex justify-content-between align-items-center p-0`}>
-            <NavLink to={'/'}>
+        <Container
+            fluid
+            className={`${styles.headerMobile} ${separatorColorClassHeader} fixed-top d-flex justify-content-between align-items-center`}
+        >
+            <NavLink to={'/'} className={styles.logoLink}>
                 {logos.map((logo, i) => (
-                    <img key={i} src={logo.img} alt={logo.alt} className={`w-100 p-0`} />
+                    <img key={i} src={logo.img} alt={logo.alt} className={styles.logo} />
                 ))}
             </NavLink>
-            <div className={styles.nav}>
+
+            <button className={styles.menuButton} onClick={toggleMenu}>
+                ☰
+            </button>
+
+            <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
                 <ul className={styles.navList}>
-                    <li><NavLink to="/categorias">Categorias</NavLink></li>
-                    <li><NavLink to="/perfil">Perfil</NavLink></li>
-                    <li><NavLink to="/favoritos">Favoritos</NavLink></li>
+                    <li>
+                        <NavLink to="/categorias" onClick={toggleMenu}>
+                            Categorias
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/perfil" onClick={toggleMenu}>
+                            Perfil
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/favoritos" onClick={toggleMenu}>
+                            Favoritos
+                        </NavLink>
+                    </li>
                 </ul>
-            </div>
+            </nav>
         </Container>
     );
 };
