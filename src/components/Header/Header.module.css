@@ -4,7 +4,7 @@
 .headerMobile {
     height: 12vh;
     background-color: #EBEBEB;
-    border-bottom: 0.75rem solid #1D4988;
+    border-bottom: 0.5rem solid #1D4988;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +22,7 @@
 }
 
 .logo {
-    max-width: 150px;
+    width: 13rem;
     height: auto;
 }
 

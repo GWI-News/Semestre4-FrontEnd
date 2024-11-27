@@ -31,39 +31,12 @@ const Header = ({ logos }) => {
     };
 
     return (
-        <Container
-            fluid
-            className={`${styles.headerMobile} ${separatorColorClassHeader} fixed-top d-flex justify-content-between align-items-center`}
-        >
+        <Container fluid className={`${styles.headerMobile} ${separatorColorClassHeader} fixed-top d-flex justify-content-center align-items-center`}>
             <NavLink to={'/'} className={styles.logoLink}>
                 {logos.map((logo, i) => (
                     <img key={i} src={logo.img} alt={logo.alt} className={styles.logo} />
                 ))}
             </NavLink>
-
-            <button className={styles.menuButton} onClick={toggleMenu}>
-                ☰
-            </button>
-
-            <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
-                <ul className={styles.navList}>
-                    <li>
-                        <NavLink to="/categorias" onClick={toggleMenu}>
-                            Categorias
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/perfil" onClick={toggleMenu}>
-                            Perfil
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/favoritos" onClick={toggleMenu}>
-                            Favoritos
-                        </NavLink>
-                    </li>
-                </ul>
-            </nav>
         </Container>
     );
 };

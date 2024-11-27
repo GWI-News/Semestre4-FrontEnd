@@ -64,7 +64,7 @@ const SobreNos = () => {
           <h1 className={styles.sobreNosH1}>Nossa Equipe</h1>
           <ul className={`${styles.sobreNosUl} m-0`}>
             <li className={styles.miniDivisor}>
-              <h2 className={styles.sobreNosH2}>Carlos Ramos - Desenvolvedor</h2>
+              <h2 className={styles.sobreNosH2}>Carlos Ramos - Desenvolvedor FrontEnd</h2>
               <img src="carlos.jpg" alt="Carlos Ramos" className={styles.image2} />
               <p className={styles.sobreNosP}>Tenho 19 anos, e atualmente estou cursando faculdade de desenvolvimento de software.</p>
               <div className='text-center m-0 p-0'>
@@ -85,7 +85,7 @@ const SobreNos = () => {
               </div>
             </li>
             <li className={styles.miniDivisor}>
-              <h2 className={styles.sobreNosH2}>Gabriel Fecchio - Desenvolvedor</h2>
+              <h2 className={styles.sobreNosH2}>Gabriel Fecchio - Arquiteto de Software</h2>
               <img src="gabriel.jpg" alt="Gabriel Fecchio" className={styles.image2} />
               <p className={styles.sobreNosP}>
                 Tenho 19 anos, sou formado como técnico em administração e atualmente estou cursando faculdade de desenvolvimento de software.
@@ -108,7 +108,7 @@ const SobreNos = () => {
               </div>
             </li>
             <li className={styles.miniDivisor}>
-              <h2 className={styles.sobreNosH2}>Lucas Malachias - Desenvolvedor</h2>
+              <h2 className={styles.sobreNosH2}>Lucas Malachias - Engenheiro de Negócio</h2>
               <img src="lucas.jpg" alt="Lucas Malachias" className={styles.image2} />
               <p className={styles.sobreNosP}>
                 Tenho 22 anos, estou cursando desenvolvimento de software multiplataforma na Fatec Matão.
@@ -131,10 +131,33 @@ const SobreNos = () => {
               </div>
             </li>
             <li className={`${styles.miniDivisor} m-0`}>
-              <h2 className={styles.sobreNosH2}>Sophia Tavares - Scrum Master</h2>
+              <h2 className={styles.sobreNosH2}>Sophia Tavares - Desenvolvedora Backend</h2>
               <img src="sophia.jpg" alt="Sophia Tavares" className={styles.image2} />
               <p className={styles.sobreNosP}>
                 Tenho 19 anos, sou formada como técnico em administração e atualmente estou cursando faculdade de desenvolvimento de software.
+              </p>
+              <div className='text-center m-0 p-0'>
+                <p className={`${styles.sobreNosP} mb-0`}>
+                  Entre em Contato:
+                </p>
+                <ul className={styles.sobreNosUl}>
+                  <li>
+                    <a href='mailto:contato.lmvieira@gmail.com' target='_blank' className={styles.sobreNosP}>E-mail</a>
+                  </li>
+                  <li>
+                    <a href='https://www.linkedin.com/in/lucas-malachias-vieira-066856288/' target='_blank' className={styles.sobreNosP}>Linkedin</a>
+                  </li>
+                  <li>
+                    <a href='https://github.com/LMVieira2' target='_blank' className={styles.sobreNosP}>GitHub</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li className={`${styles.miniDivisor} m-0`}>
+              <h2 className={styles.sobreNosH2}>Felipe Donizeti - Assegurador de Qualidade e Testador</h2>
+              <img src="donizeti.jpg" alt="Felipe Donizeti" className={styles.image2} />
+              <p className={styles.sobreNosP}>
+                Tenho 32 anos, estou cursando Desenvolvimento de Software Multilataforma na Fatec Matão, minha função no Projeto GWI News é QA e Tester.
               </p>
               <div className='text-center m-0 p-0'>
                 <p className={`${styles.sobreNosP} mb-0`}>
