@@ -66,7 +66,7 @@ const Perfil = () => {
                                 </div>
                             </Col>
                             <Col xs={8} className={`p-0`}>
-                                <h1 className={`${styles.perfilAdmTitle}`}>João do Nunca Imaginário</h1>
+                                <h1 className={`${styles.perfilAdmTitle}`}>Gabriel Larocca</h1>
                             </Col>
                         </Row>
                         <Row className={`m-0 p-0`}>
