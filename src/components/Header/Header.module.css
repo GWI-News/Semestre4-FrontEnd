@@ -1,48 +1,127 @@
 /* Header.module.css */
 
+/* Header Mobile */
 .headerMobile {
     height: 12vh;
     background-color: #EBEBEB;
     border-bottom: 0.75rem solid #1D4988;
     display: flex;
-    justify-content: space-between; /* Alinha logo, nav e pesquisa */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 0 2rem; /* Espaçamento lateral */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999; /* Garante que o header fique por cima */
 }
 
+/* Logo */
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Menu Button (Hamburguer) */
+.menuButton {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #1D4988;
+}
+
+/* Nav Menu no Mobile */
 .nav {
-    flex-grow: 1; /* Permite que a barra de navegação use o espaço restante */
+    position: absolute;
+    top: 12vh; /* Ajuste com a altura do header */
+    right: 0;
+    background-color: #F9F9F9;
+    width: 250px;
+    padding: 1rem;
+    border-left: 3px solid #1D4988;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Nav aberto */
+.navOpen {
+    transform: translateX(0);
+}
+
+/* Lista de Links */
 .navList {
     list-style: none;
-    display: flex;
-    gap: 2rem; /* Espaçamento entre links */
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .navList li {
-    display: inline; /* Alinha links na mesma linha */
+    margin: 1rem 0;
 }
 
 .navList a {
     text-decoration: none;
-    color: #1D4988; /* Cor dos links */
+    color: #1D4988;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .navList a:hover {
-    text-decoration: underline; /* Efeito ao passar o mouse */
+    color: #FF5733;
 }
 
-.search {
-    flex-grow: 1; /* Permite que a barra de pesquisa use o espaço restante */
-    text-align: center; /* Centraliza a barra de pesquisa */
+/* Responsividade para telas maiores (PC) */
+@media (min-width: 768px) {
+    .menuButton {
+        display: none;
+    }
+
+    .nav {
+        position: static;
+        transform: translateX(0);
+        background: none;
+        border: none;
+        box-shadow: none;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navList {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .navList li {
+        margin: 0;
+    }
+
+    /* Barra de progresso no PC */
+    .progressBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: #F9F9F9;
+        z-index: 9998;
+    }
+
+    .progressBarInner {
+        width: 0;
+        height: 100%;
+        background-color: #1D4988;
+        transition: width 0.1s linear;
+    }
 }
 
-.search input {
-    padding: 0.5rem;
-    width: 50%; /* Ajuste a largura da barra de pesquisa */
-    border: 1px solid #ccc; /* Borda da barra de pesquisa */
-    border-radius: 5px; /* Bordas arredondadas */
+@media (min-width: 1024px) {
+    .navList {
+        gap: 2.5rem;
+    }
 }
