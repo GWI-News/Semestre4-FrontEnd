@@ -31,7 +31,7 @@ const Header = ({ logos }) => {
     };
 
     return (
-        <Container fluid className={`${styles.headerMobile} ${separatorColorClassHeader} fixed-top d-flex justify-content-center align-items-center`}>
+        <Container fluid className={`${styles.headerMobile} ${separatorColorClassHeader} d-flex justify-content-center align-items-center`}>
             <NavLink to={'/'} className={styles.logoLink}>
                 {logos.map((logo, i) => (
                     <img key={i} src={logo.img} alt={logo.alt} className={styles.logo} />

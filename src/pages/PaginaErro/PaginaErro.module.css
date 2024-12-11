@@ -35,3 +35,9 @@
     display: block;
     margin: 1.25rem auto;
 }
+
+@media (min-width: 576px) {
+    .container {
+        margin: 14vh 0 0 0;
+    }
+}

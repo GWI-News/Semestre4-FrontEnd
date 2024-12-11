@@ -113,6 +113,27 @@ const Navbar = () => {
 
     const categoryPath = ['/Empregos', '/Educacao', '/Esportes', '/Entretenimento', '/Economia'].includes(location.pathname)
 
+    const [placement, setPlacement] = useState('bottom');
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 576) {
+                setPlacement('top');
+            } else {
+                setPlacement('bottom');
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Set initial placement based on current window size
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     var offcanvasCategorySelected = styles.navbarPadrao
     switch (location.pathname) {
         case '/Educacao':
@@ -134,7 +155,7 @@ const Navbar = () => {
 
     return (
         <>
-            <Offcanvas show={showCategories} onHide={handleCloseCategories} placement={'bottom'} className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
+            <Offcanvas show={showCategories} onHide={handleCloseCategories} placement={placement} className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
                 <Offcanvas.Body className={'pt-2 pb-2'}>
                     <Col className={`${styles.colCategorias} d-flex flex-column justify-content-center align-items-center`}>
                         <Row className={`${styles.linkConatiner} w-100`}>
@@ -158,7 +179,7 @@ const Navbar = () => {
                     </Col>
                 </Offcanvas.Body>
             </Offcanvas>
-            <Offcanvas show={showLogin} onHide={handleCloseLogin} placement='bottom' className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
+            <Offcanvas show={showLogin} onHide={handleCloseLogin} placement={placement} className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
                 <Offcanvas.Header className='justify-content-center text-center ps-2 pe-2 pt-1 pb-1'>
                     <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Login</h1>
                 </Offcanvas.Header>
@@ -184,7 +205,7 @@ const Navbar = () => {
                     </Form>
                 </Offcanvas.Body>
             </Offcanvas>
-            <Offcanvas show={showSignUp} onHide={handleCloseSignUp} placement='bottom' className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
+            <Offcanvas show={showSignUp} onHide={handleCloseSignUp} placement={placement} className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
                 <Offcanvas.Header className='justify-content-center text-center ps-2 pe-2 pt-1 pb-1'>
                     <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Cadastro</h1>
                 </Offcanvas.Header>
@@ -214,7 +235,7 @@ const Navbar = () => {
                     </Form>
                 </Offcanvas.Body>
             </Offcanvas>
-            <Offcanvas show={showForgotPassword} onHide={handleCloseForgotPassword} placement='bottom' className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
+            <Offcanvas show={showForgotPassword} onHide={handleCloseForgotPassword} placement={placement} className={`${styles.offcanvasMobile} rounded-top`} backdropClassName={styles.backdropExtraClass}>
                 <Offcanvas.Header className='justify-content-center text-center ps-2 pe-2 pt-1 pb-1'>
                     <h1 className={`${styles.offcanvasTitle} m-0 pt-1 pb-2`}>Recuperar Senha</h1>
                 </Offcanvas.Header>
@@ -232,7 +253,7 @@ const Navbar = () => {
                     </Form>
                 </Offcanvas.Body>
             </Offcanvas>
-            <Container onClick={showCategories || showLogin || showSignUp || showForgotPassword ? () => { handleCloseCategories(); handleCloseLogin(); handleCloseSignUp(); handleCloseForgotPassword(); } : null} fluid className={`${styles.navbarMobile} ${offcanvasCategorySelected} fixed-bottom p-0`}>
+            <Container onClick={showCategories || showLogin || showSignUp || showForgotPassword ? () => { handleCloseCategories(); handleCloseLogin(); handleCloseSignUp(); handleCloseForgotPassword(); } : null} fluid className={`${styles.navbarMobile} ${offcanvasCategorySelected} p-0`}>
                 <Row className={`justify-content-around h-100 m-0`}>
                     <Col xs={3} className='d-flex flex-column justify-content-center align-items-center p-0'>
                         <NavLink to={'/'} className={location.pathname === '/' ? `${styles.navbarIconSelectedCol} text-center text-decoration-none p-1` : `text-center text-decoration-none`}>

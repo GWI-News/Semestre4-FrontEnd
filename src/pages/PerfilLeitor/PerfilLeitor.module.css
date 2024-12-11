@@ -187,3 +187,9 @@
     height: auto;
     color: #FFD700;
 }
+
+@media (min-width: 576px) {
+    .perfilLeitorContainer {
+        margin: 14vh 0 0 0;
+    }
+}
