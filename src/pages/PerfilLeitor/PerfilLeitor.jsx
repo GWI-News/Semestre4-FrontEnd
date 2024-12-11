@@ -1,90 +1,96 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthValue } from '../../context/AuthContext';
-import { userAuthentication } from '../../hooks/userAuthentication';
+import { useAuthValue } from '../../context/AuthContext'
+import { userAuthentication } from '../../hooks/userAuthentication'
 import styles from './PerfilLeitor.module.css';
 import { CameraFill } from 'react-bootstrap-icons';
 import { useLocation } from 'react-router-dom';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import NewsCard from '../../components/Card/Card';
+import { getDocs, collection } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 const PerfilLeitor = () => {
-    const location = useLocation()  
-    useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [location])
-
-    const { user } = useAuthValue();
-    const { logout } = userAuthentication();
+    const { user } = useAuthValue()
+    const { logout } = userAuthentication()
     const navigate = useNavigate();
-    const [favoriteNews, setFavoriteNews] = useState([]);
+
+
+    const [noticias, setNoticias] = useState([]);
+    const noticiasCards = noticias;
+    const location = useLocation();
+
+    useEffect(() => {
+        const getNoticias = async () => {
+            const data = await getDocs(collection(db, 'Noticias'));
+            setNoticias(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        };
+        getNoticias();
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location]);
 
     useEffect(() => {
         if (!user) {
-            navigate('/');
-        } else {
-            setFavoriteNews([
-                { id: 1, title: "Notícia 1", imageUrl: "https://via.placeholder.com/150" },
-                { id: 2, title: "Notícia 2", imageUrl: "https://via.placeholder.com/150" },
-                { id: 3, title: "Notícia 3", imageUrl: "https://via.placeholder.com/150" },
-                { id: 4, title: "Notícia 4", imageUrl: "https://via.placeholder.com/150" },
-                { id: 5, title: "Notícia 5", imageUrl: "https://via.placeholder.com/150" },
-                { id: 6, title: "Notícia 6", imageUrl: "https://via.placeholder.com/150" },
-                { id: 7, title: "Notícia 7", imageUrl: "https://via.placeholder.com/150" },
-                { id: 8, title: "Notícia 8", imageUrl: "https://via.placeholder.com/150" },
-                { id: 9, title: "Notícia 9", imageUrl: "https://via.placeholder.com/150" },
-                { id: 10, title: "Notícia 10", imageUrl: "https://via.placeholder.com/150" }
-            ]);
+            navigate('/')
         }
-    }, [user, navigate]);
-
-    const handleEditProfile = () => {
-        console.log('Edit profile');
-    };
-
-    const handleAddPhoto = () => {
-        console.log('Add photo');
-    };
+    }, [user])
 
     return (
-        <div className={styles.perfilLeitorContainer}>
-            <h1 className={styles.title}>Perfil de Leitor</h1>
-            {user && (
-                <div className={styles.userInfo}>
-                    <div className={styles.userImageContainer}>
-                        <div className={styles.userImage}>
-                            <img src={user.profileImage} className={styles.userPhoto} alt="Foto de Perfil" />
-                            <div className={styles.editPhotoOverlay}>
-                                <CameraFill className={styles.userImageIcon} />
-                                <p className={styles.addPhotoText} onClick={handleAddPhoto}>Alterar Foto</p>
-                            </div>
+        <>
+            <Container fluid className={styles.perfilAdmContainer}>
+                <Col className={styles.perfilAdmInfoContainer}>
+                    <Row className={`${styles.perfilAdmSectionFirst} m-0`}>
+                        <Col xs={12} md={8}>
+                            <Row className={`align-items-center mb-3 m-0 p-0`}>
+                                <Col xs={4} sm={3} className={`p-0`}>
+                                    <div className={`${styles.perfilAdmContainerUserImage} d-flex justify-content-center align-items-center`}>
+                                        <CameraFill className={styles.perfilAdmUserImage}></CameraFill>
+                                    </div>
+                                </Col>
+                                <Col xs={8} sm={9} className={`p-0`}>
+                                    <h1 className={`${styles.perfilAdmTitle}`}>Gabriel Larocca 0</h1>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col xs={12} md={4} className='d-flex align-itens-center'>
+                            <Row className={`m-0 p-0 d-flex align-itens-center`}>
+                                <Col className={`p-0 d-flex flex-column justify-content-center`}>
+                                    <h5>Email: gabriellarocca0@gmail.com</h5>
+                                    <h5>Senha: **********</h5>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Row>
+                            <Col xs={6}>
+                                <Button className={`${styles.perfilAdmSectionCrudButton}`}>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Editar</h4>
+                                </Button>
+                            </Col>
+                            <Col xs={6}>
+                                <Button onClick={logout} className={`${styles.perfilAdmSectionCrudButton}`}>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Sair</h4>
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Row>
+                    <Row className={`${styles.perfilAdmSection} m-0`}>
+                        <Row className='mb-3 m-0 p-0'>
+                            <Col className='p-0'>
+                                <h1 className={`${styles.perfilAdmTitle}`}>Notícias Favoritas</h1>
+                            </Col>
+                        </Row>
+                        <div className={styles.cardContainer}>
+                            {noticiasCards.map((noticia) => (
+                                <NewsCard key={noticia.id} noticia={noticia} categoria={'empregos'} />
+                            ))}
                         </div>
-                        <p className={styles.userName}>{user.name}</p>
-                        <p>Sophia Icoma Tavares</p>
-                        <p>19 anos</p>
-                        <p>Araraquara, São Paulo, Brasil</p>
-                        <button onClick={handleEditProfile} className={styles.editProfileButton}>Editar Perfil</button>
-                        <button onClick={logout} className={styles.logoutButton}>LogOut</button>
-                    </div>
-                </div>
-            )}
-            <div className={styles.favoriteNewsSection}>
-                <h2 className={styles.sectionTitle}>Notícias Favoritadas</h2>
-                <ul className={styles.favoriteNewsList}>
-                    {favoriteNews.map(news => (
-                        <li key={news.id} className={styles.favoriteNewsItem}>
-                            <div className={styles.newsImage}>
-                                <img src={news.imageUrl} alt="Imagem da Notícia" className={styles.newsPhoto} />
-                            </div>
-                            <div className={styles.newsContent}>
-                                <h3 className={styles.newsTitle}>{news.title}</h3>
-                                <button className={styles.unfavoriteButton}>
-                                    <span className={styles.starIcon}>&#9734;</span> Desfavoritar
-                                </button>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
+                    </Row>
+                </Col>
+            </Container>
+        </>
     );
 }
 

@@ -7,7 +7,7 @@
 
 .pesquisa {
     position: fixed;
-    bottom: 13vh;
+    bottom: 2vh;
     right: 0.688rem;
     z-index: 100;
     display: flex;
