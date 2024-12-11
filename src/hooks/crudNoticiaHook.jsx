@@ -36,6 +36,11 @@ export const crudNoticiaHook = () => {
       setError(systemErrorMessage)
     }
   }
+
+  const deleteNoticia = async (id) => {
+    const notDoc = doc(db, 'Noticias', id)
+    await deleteDoc(notDoc)
+  }
   
   return { createNoticia, deleteNoticia }
 }
