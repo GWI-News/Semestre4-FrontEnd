@@ -1,6 +1,9 @@
 .navbarMobile {
     height: 12vh;
     background-color: #EBEBEB;
+    position: fixed;
+    bottom: 0;
+    right: 0;
     z-index: 1046;
 }
 
@@ -189,4 +192,26 @@
 .linkCategorias h1 {
     font-size: 1.75rem;
     margin: 0;
+}
+
+@media (min-width: 576px) {
+    .navbarMobile {
+        height: 14vh;
+        width: 50%;
+        top: 0;
+        bottom: auto;
+        background-color: #EBEBEB;
+        border-bottom: 0.5rem solid #1D4988;
+        border-top: none;
+    }
+
+    .offcanvasMobile {
+        top: 14vh!important;
+        bottom: auto;
+    }
+
+    .backdropExtraClass {
+        top: 14vh;
+        height: 86vh;
+    }
 }

@@ -24,9 +24,9 @@ const Perfil = () => {
 
     const navigate = useNavigate()
 
-    const location = useLocation()  
+    const location = useLocation()
     useEffect(() => {
-      window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
     }, [location])
 
     useEffect(() => {
@@ -59,28 +59,36 @@ const Perfil = () => {
             <Container fluid className={styles.perfilAdmContainer}>
                 <Col className={styles.perfilAdmInfoContainer}>
                     <Row className={`${styles.perfilAdmSectionFirst} m-0`}>
-                        <Row className={`align-items-center mb-3 m-0 p-0`}>
-                            <Col xs={4} className={`p-0`}>
-                                <div className={`${styles.perfilAdmContainerUserImage} d-flex justify-content-center align-items-center`}>
-                                    <CameraFill className={styles.perfilAdmUserImage}></CameraFill>
-                                </div>
-                            </Col>
-                            <Col xs={8} className={`p-0`}>
-                                <h1 className={`${styles.perfilAdmTitle}`}>Gabriel Larocca</h1>
-                            </Col>
-                        </Row>
-                        <Row className={`m-0 p-0`}>
-                            <Col className={`p-0`}>
-                                <h5>Email: gabriellarocca5@gmail.com</h5>
-                                <h5>Senha: **********</h5>
-                            </Col>
-                        </Row>
+                        <Col xs={12} md={8}>
+                            <Row className={`align-items-center mb-3 m-0 p-0`}>
+                                <Col xs={4} sm={3} className={`p-0`}>
+                                    <div className={`${styles.perfilAdmContainerUserImage} d-flex justify-content-center align-items-center`}>
+                                        <CameraFill className={styles.perfilAdmUserImage}></CameraFill>
+                                    </div>
+                                </Col>
+                                <Col xs={8} sm={9} className={`p-0`}>
+                                    <h1 className={`${styles.perfilAdmTitle}`}>Gabriel Larocca</h1>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col xs={12} md={4} className='d-flex align-itens-center'>
+                            <Row className={`m-0 p-0 d-flex align-itens-center`}>
+                                <Col className={`p-0 d-flex flex-column justify-content-center`}>
+                                    <h5>Email: gabriellarocca5@gmail.com</h5>
+                                    <h5>Senha: **********</h5>
+                                </Col>
+                            </Row>
+                        </Col>
                         <Row>
                             <Col xs={6}>
-                                <Button className={`${styles.perfilAdmSectionCrudButton}`}>Editar</Button>
+                                <Button className={`${styles.perfilAdmSectionCrudButton}`}>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Editar</h4>
+                                </Button>
                             </Col>
                             <Col xs={6}>
-                                <Button onClick={logout} className={`${styles.perfilAdmSectionCrudButton}`}>Sair</Button>
+                                <Button onClick={logout} className={`${styles.perfilAdmSectionCrudButton}`}>
+                                    <h4 className={`${styles.perfilAdmSectionCrudButtonText}`}>Sair</h4>
+                                </Button>
                             </Col>
                         </Row>
                     </Row>
@@ -90,8 +98,8 @@ const Perfil = () => {
                                 <h1 className={`${styles.perfilAdmTitle}`}>Painel de Usuários</h1>
                             </Col>
                         </Row>
-                        <Row className='m-0 p-0'>
-                            <Col xs={6} className='ps-4 pe-4 p-0'>
+                        <Row className='m-0 p-0 justify-content-center'>
+                            <Col xs={6} sm={5} className='ps-4 pe-4 p-0'>
                                 <Row className='m-0 p-0'>
                                     <div className='d-flex flex-column justify-content-center align-items-center w-50 p-0'>
                                         <FilePerson className={`${styles.perfilAdmSectionCrudIcons}`}></FilePerson>
@@ -118,8 +126,8 @@ const Perfil = () => {
                                 <h2 className={`${styles.perfilAdmTitle}`}>Painel de Notícias</h2>
                             </Col>
                         </Row>
-                        <Row className='m-0 p-0'>
-                            <Col xs={6} className='ps-4 pe-4 p-0'>
+                        <Row className='m-0 p-0 justify-content-center'>
+                            <Col xs={6} sm={5} className='ps-4 pe-4 p-0'>
                                 <Row className='m-0 p-0'>
                                     <div className='d-flex flex-column justify-content-center align-items-center w-50 p-0'>
                                         <FileEarmarkFont className={`${styles.perfilAdmSectionCrudIcons}`}></FileEarmarkFont>

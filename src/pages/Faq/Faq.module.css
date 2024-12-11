@@ -66,3 +66,9 @@
     background-color: #1D4988;
     box-shadow: 0 0 10px #1D4988;
 }
+
+@media (min-width: 576px) {
+    .faqContainer {
+        margin: 14vh 0 0 0;
+    }
+}
